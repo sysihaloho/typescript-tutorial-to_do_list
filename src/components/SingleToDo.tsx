@@ -11,7 +11,7 @@ type Props = {
     dispatch: React.Dispatch<Actions>;
 }
 
-const SingleToDo = ({todo, todos, dispatch}:Props) => {
+const SingleToDo:React.FC<Props> = ({todo, todos, dispatch}:Props) => {
 
 const [edit, setEdit] = useState<boolean>(false);
 const [editTodo, setEditTodo] = useState<string>(todo.todo);
