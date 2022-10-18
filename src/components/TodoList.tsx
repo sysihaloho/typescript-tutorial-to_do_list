@@ -16,24 +16,28 @@ const TodoList: React.FC<Props> = ({todos, dispatch}: Props) => {
         <span className="todos__heading">
             Active Tasks
         </span>
-            { todos.map(todo => <SingleToDo
+            { todos.map(todo => 
+                !todo.isDone
+                ? <SingleToDo
                     todo={todo}
                     key={todo.id}
                     todos={todos}
-                    dispatch={dispatch}/>)
+                    dispatch={dispatch}/>
+                : null)
             }
         </div>
         <div className="todos remove">  
             <span className="todos__heading">
                 Completed Tasks
             </span>
-            { todos.map(todo =>
-                <SingleToDo 
+            { todos.map(todo => 
+                todo.isDone
+                ? <SingleToDo 
                     todo={todo}
                     key={todo.id}
                     todos={todos}
                     dispatch={dispatch}/>
-                )
+                : null)
             }
         </div>
     </div>
